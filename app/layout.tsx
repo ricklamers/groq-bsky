@@ -6,9 +6,19 @@ import { ThemeProvider } from '@/components/theme-provider';
 import './globals.css';
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://chat.vercel.ai'),
   title: 'Groq + Bluesky Chatbot',
   description: 'A chatbot that uses Groq and Bluesky to search and interact with the Bluesky decentralized social network.',
+  openGraph: {
+    title: 'Groq + Bluesky Chatbot',
+    description: 'A chatbot that uses Groq and Bluesky to search and interact with the Bluesky decentralized social network.',
+    images: ['/images/opengraph-image.png']
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Groq + Bluesky Chatbot',
+    description: 'A chatbot that uses Groq and Bluesky to search and interact with the Bluesky decentralized social network.',
+    images: ['/images/opengraph-image.png']
+  }
 };
 
 export const viewport = {
