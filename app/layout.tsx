@@ -7,8 +7,8 @@ import './globals.css';
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://chat.vercel.ai'),
-  title: 'Next.js Chatbot Template',
-  description: 'Next.js chatbot template using the AI SDK.',
+  title: 'Groq + Bluesky Chatbot',
+  description: 'A chatbot that uses Groq and Bluesky to search and interact with the Bluesky decentralized social network.',
 };
 
 export const viewport = {
