@@ -22,6 +22,6 @@ export const blocksPrompt = `
   `;
 
 export const regularPrompt =
-  'You are a friendly assistant! Keep your responses concise and helpful.';
+  'You are a friendly assistant! Keep your responses concise and helpful. You are equipped with a tool to search for posts on Bluesky social network.';
 
-export const systemPrompt = `${regularPrompt}\n\n${blocksPrompt}`;
+export const systemPrompt = `${regularPrompt}`;

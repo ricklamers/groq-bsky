@@ -14,6 +14,7 @@ import { Markdown } from './markdown';
 import { MessageActions } from './message-actions';
 import { PreviewAttachment } from './preview-attachment';
 import { Weather } from './weather';
+import { BlueskyPost } from './bluesky-post';
 
 export const PreviewMessage = ({
   chatId,
@@ -67,6 +68,16 @@ export const PreviewMessage = ({
                     <div key={toolCallId}>
                       {toolName === 'getWeather' ? (
                         <Weather weatherAtLocation={result} />
+                      ) : toolName === 'searchBsky' ? (
+                        <div className="relative w-full">
+                          <div className="flex overflow-x-auto gap-4 pb-4 -mx-4 px-4 snap-x snap-mandatory">
+                            {result.posts.map((post) => (
+                              <div key={post.uri} className="snap-start shrink-0 w-[300px]">
+                                <BlueskyPost post={post} />
+                              </div>
+                            ))}
+                          </div>
+                        </div>
                       ) : toolName === 'createDocument' ? (
                         <DocumentToolResult
                           type="create"
