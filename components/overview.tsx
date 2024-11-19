@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 
-import { MessageIcon, VercelIcon } from './icons';
+import { MessageIcon, } from './icons';
 
 export const Overview = () => {
   return (
@@ -37,7 +37,7 @@ export const Overview = () => {
           .
         </p>
         <p>
-          You can explore Bluesky's decentralized social network and interact with its content through natural language conversations.
+          You can explore Bluesky&apos;s decentralized social network and interact with its content through natural language conversations.
         </p>
       </div>
     </motion.div>

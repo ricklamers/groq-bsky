@@ -1,13 +1,11 @@
 import { formatDistanceToNow } from 'date-fns';
+import type { BlueskyPostType } from '@/lib/types';
 
-interface BlueskyPost {
-  text: string;
-  author: string;
-  createdAt: string;
-  uri: string;
+interface BlueskyPostProps {
+  post: BlueskyPostType;
 }
 
-export const BlueskyPost = ({ post }: { post: BlueskyPost }) => {
+export const BlueskyPost = ({ post }: BlueskyPostProps) => {
   const webUrl = post.uri
     .replace('at://', '')
     .replace('/app.bsky.feed.post/', '/post/');
@@ -23,7 +21,7 @@ export const BlueskyPost = ({ post }: { post: BlueskyPost }) => {
     >
       <div className="flex flex-col gap-2">
         <div className="text-sm text-muted-foreground truncate">
-          @{post.author.replace('.bsky.social', '')}
+          @{post.author.handle.replace('.bsky.social', '')}
           {' · '}
           {formatDistanceToNow(new Date(post.createdAt), { addSuffix: true })}
         </div>
