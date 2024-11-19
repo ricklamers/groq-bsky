@@ -75,7 +75,7 @@ export async function POST(request: Request) {
     maxSteps: 5,
     tools: {
       searchBsky: {
-        description: 'Search for posts on Bluesky social network, always pick top or latest for the user based on what best matches the user question.',
+        description: 'Search for posts on Bluesky social network, only pick latest if the user asks specifically for sorting by latest, otherwise pick top.',
         parameters: z.object({
           query: z.string().describe('The search query string'),
           sort: z.enum(['top', 'latest']).optional().describe('Sort order for results'),
