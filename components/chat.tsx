@@ -17,6 +17,7 @@ import { Block, type UIBlock } from './block';
 import { BlockStreamHandler } from './block-stream-handler';
 import { MultimodalInput } from './multimodal-input';
 import { Overview } from './overview';
+import { useAuth } from '@/lib/hooks/use-auth';
 
 export function Chat({
   id,
@@ -74,6 +75,8 @@ export function Chat({
 
   const [attachments, setAttachments] = useState<Array<Attachment>>([]);
 
+  const { isAuthenticated } = useAuth();
+
   return (
     <>
       <div className="flex flex-col min-w-0 h-dvh bg-background">
@@ -124,6 +127,7 @@ export function Chat({
             messages={messages}
             setMessages={setMessages}
             append={append}
+            isAuthenticated={isAuthenticated}
           />
         </form>
       </div>

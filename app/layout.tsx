@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Toaster } from 'sonner';
 
 import { ThemeProvider } from '@/components/theme-provider';
-
+import { AuthProvider } from '@/components/providers/session-provider';
 import './globals.css';
 
 export const metadata: Metadata = {
@@ -67,15 +67,17 @@ export default async function RootLayout({
         />
       </head>
       <body className="antialiased">
-        <ThemeProvider
-          attribute="class"
+        <AuthProvider>
+          <ThemeProvider
+            attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
           <Toaster position="top-center" />
           {children}
-        </ThemeProvider>
+          </ThemeProvider>
+        </AuthProvider>
       </body>
     </html>
   );

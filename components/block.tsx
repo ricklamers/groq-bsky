@@ -36,6 +36,8 @@ import { Button } from './ui/button';
 import { Tooltip, TooltipContent, TooltipTrigger } from './ui/tooltip';
 import { useScrollToBottom } from './use-scroll-to-bottom';
 import { VersionFooter } from './version-footer';
+import { useAuth } from '@/lib/hooks/use-auth';
+
 export interface UIBlock {
   title: string;
   documentId: string;
@@ -249,6 +251,8 @@ export function Block({
 
   const [_, copyToClipboard] = useCopyToClipboard();
 
+  const { isAuthenticated } = useAuth();
+
   return (
     <motion.div
       className="flex flex-row h-dvh w-dvw fixed top-0 left-0 z-50 bg-muted"
@@ -330,6 +334,7 @@ export function Block({
                 append={append}
                 className="bg-background dark:bg-muted"
                 setMessages={setMessages}
+                isAuthenticated={isAuthenticated}
               />
             </form>
           </div>

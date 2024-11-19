@@ -34,7 +34,7 @@ export const PreviewMessage = ({
 }) => {
   return (
     <motion.div
-      className="w-full mx-auto max-w-3xl px-4 group/message"
+      className="w-full mx-auto max-w-[100vw] md:max-w-3xl px-4 group/message"
       initial={{ y: 5, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       data-role={message.role}
@@ -70,8 +70,8 @@ export const PreviewMessage = ({
                       {toolName === 'getWeather' ? (
                         <Weather weatherAtLocation={result} />
                       ) : toolName === 'searchBsky' ? (
-                        <div className="relative w-full">
-                          <div className="flex overflow-x-auto gap-4 pb-4 -mx-4 px-4 snap-x snap-mandatory">
+                        <div className="relative">
+                          <div className="flex overflow-x-auto snap-x gap-4 pb-4 px-4 snap-mandatory">
                             {result.posts.map((post: BlueskyPostType) => (
                               <div key={post.uri} className="snap-start shrink-0 w-[300px]">
                                 <BlueskyPost post={post} />
@@ -160,7 +160,7 @@ export const ThinkingMessage = () => {
 
   return (
     <motion.div
-      className="w-full mx-auto max-w-3xl px-4 group/message "
+      className="w-full mx-auto max-w-[100vw] md:max-w-3xl px-4 group/message"
       initial={{ y: 5, opacity: 0 }}
       animate={{ y: 0, opacity: 1, transition: { delay: 1 } }}
       data-role={role}
