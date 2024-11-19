@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import type { Dispatch, SetStateAction } from 'react';
 
 import type { Vote } from '@/lib/db/schema';
-import type { BlueskyPost } from '@/lib/types';
+import type { BlueskyPostType } from '@/lib/types';
 
 import type { UIBlock } from './block';
 import { DocumentToolCall, DocumentToolResult } from './document';
@@ -15,7 +15,7 @@ import { Markdown } from './markdown';
 import { MessageActions } from './message-actions';
 import { PreviewAttachment } from './preview-attachment';
 import { Weather } from './weather';
-import { BlueskyPost as BlueskyPostComponent } from './bluesky-post';
+import { BlueskyPost } from './bluesky-post';
 
 export const PreviewMessage = ({
   chatId,
@@ -72,9 +72,9 @@ export const PreviewMessage = ({
                       ) : toolName === 'searchBsky' ? (
                         <div className="relative w-full">
                           <div className="flex overflow-x-auto gap-4 pb-4 -mx-4 px-4 snap-x snap-mandatory">
-                            {result.posts.map((post: BlueskyPost) => (
+                            {result.posts.map((post: BlueskyPostType) => (
                               <div key={post.uri} className="snap-start shrink-0 w-[300px]">
-                                <BlueskyPostComponent post={post} />
+                                <BlueskyPost post={post} />
                               </div>
                             ))}
                           </div>
