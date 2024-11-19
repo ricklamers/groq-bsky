@@ -21,7 +21,7 @@ export const BlueskyPost = ({ post }: BlueskyPostProps) => {
     >
       <div className="flex flex-col gap-2">
         <div className="text-sm text-muted-foreground truncate">
-          @{post.author.handle.replace('.bsky.social', '')}
+          @{post.author.replace('.bsky.social', '')}
           {' · '}
           {formatDistanceToNow(new Date(post.createdAt), { addSuffix: true })}
         </div>
